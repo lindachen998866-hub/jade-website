@@ -352,9 +352,8 @@
     projectId: "nuyprr23",
     dataset: "production",
     apiVersion: "2026-05-31",
-    token: "skdYK2AKNQ6G5ZxX49h8mNUgHqKS28KauTnFJFXmQ42gZ9hlhbPVg03sU1ALopAAXjhZBez1gcg0a2tmz4sQXdq6fd1xqMmj1qaBZM036GxDyQzDr1b6oXfeUHkJoxetFkJhgMyNnxK9HNjAsHwu1ErffvVVe5nLJNvzYzsxF6cTf4TUqn",
-    useCdn: false,
-  });
+  useCdn: true, // 使用 CDN 以获得更快的读取速度
+});
 
   const query = `*[_type == "post"]{
     _id,
