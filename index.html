@@ -12,7 +12,6 @@
     color: #f5f5f5;
   }
 
-  /* 🌿 翡翠封面 */
   header {
     height: 100vh;
     background: url('https://old-coffee-b7k4dbij.edgeone.app/image_%E7%BF%A1%E7%BF%A0%E6%89%93%E5%B7%A5%E4%BA%BA_%E4%BD%B3%E5%A3%AB%E5%BE%97%E6%8B%8D%E5%8D%96%E6%AC%BE%E9%9B%AA%E8%8A%B1%E6%88%92%E6%8C%87..._0.png') center/cover;
@@ -24,7 +23,6 @@
     position: relative;
   }
 
-  /* 暗色遮罩，提升高級感 */
   header::before {
     content: "";
     position: absolute;
@@ -48,7 +46,6 @@
     opacity: 0.85;
   }
 
-  /* 區塊設計 */
   section {
     padding: 100px 15%;
     border-bottom: 1px solid rgba(200,169,106,0.25);
@@ -61,7 +58,6 @@
     padding-left: 15px;
   }
 
-  /* 作品展示 */
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -86,12 +82,6 @@
     margin-bottom: 18px;
   }
 
-  .price {
-    color: #c8a96a;
-    font-size: 18px;
-    font-weight: bold;
-  }
-
   footer {
     text-align: center;
     padding: 50px;
@@ -99,70 +89,74 @@
     font-size: 13px;
     opacity: 0.6;
   }
-
 </style>
 </head>
 
 <body>
 
-<!-- 🌿 首頁：純展示（無購買導向） -->
 <header>
   <h1>翡翠雅藏</h1>
   <p>天然翡翠藝術收藏 · 東方美學的靜謐呈現</p>
 </header>
 
-<!-- 品牌理念 -->
 <section>
   <div class="title">品牌理念</div>
   <p>
     我們專注於天然翡翠的甄選與藝術呈現，  
-    每一件作品皆以「收藏級標準」精選，  
-    融合東方玉文化與現代極簡美學，  
-    呈現靜謐、純淨且具精神價值的藝術之美。
+    每一件作品皆以收藏級標準精選，  
+    融合東方玉文化與現代極簡美學。
   </p>
 </section>
 
-<!-- 作品展示（純介紹） -->
 <section>
   <div class="title">翡翠作品</div>
 
-  <div class="grid">
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1611599539390-0b7d1d2d1c3a">
-      <h3>冰種蘭花飄</h3>
-      <p>冰透質地，飄花自然流動，如雲中蘭影。</p>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1603398938378-e54eab446dde">
-      <h3>糯種蘭花飄</h3>
-      <p>溫潤細膩，柔光如脂，展現含蓄之美。</p>
-    </div>
-
-    <div class="card">
-      <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638">
-      <h3>冰種細緻雲霧</h3>
-      <p>通透如霧，層次流轉，極具收藏價值。</p>
-    </div>
-
+  <div class="grid" id="jade-list">
+    <!-- Sanity 自動載入 -->
   </div>
 </section>
 
-<!-- 收藏概念 -->
 <section>
   <div class="title">收藏理念</div>
   <p>
-    翡翠不僅是飾品，更是時間與自然的結晶。  
-    每一件作品都承載著獨特的礦物語言與文化底蘊，  
-    適合長期收藏與鑑賞。
+    翡翠是自然與時間的結晶，每件作品都有獨特文化與價值。
   </p>
 </section>
 
-<!-- 頁尾（無商業感） -->
 <footer>
   © 2026 翡翠雅藏 Jade Collection · Exhibition Only
 </footer>
+
+<!-- 🚀 Sanity 載入（關鍵） -->
+<script type="module">
+import { createClient } from "https://esm.sh/@sanity/client";
+
+const client = createClient({
+  projectId: "nuyprr23",
+  dataset: "production",
+  apiVersion: "2026-01-01",
+  useCdn: true,
+});
+
+const query = `*[_type == "post"]{
+  _id,
+  title,
+  description,
+  "imageUrl": image.asset->url
+}`;
+
+client.fetch(query).then((items) => {
+  const box = document.getElementById("jade-list");
+
+  box.innerHTML = items.map(item => `
+    <div class="card">
+      <img src="${item.imageUrl || ''}" />
+      <h3>${item.title || ''}</h3>
+      <p>${item.description || ''}</p>
+    </div>
+  `).join("");
+});
+</script>
 
 </body>
 </html>
