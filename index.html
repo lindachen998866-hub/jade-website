@@ -461,40 +461,104 @@
   </footer>
   <div class="back2top" id="goTop"><i class="fas fa-arrow-up"></i></div>
 
-  <script type="module">
-    // 静态演示数据（可替换为Sanity动态加载）
-    const demoProducts = [
-      { name: "冰種飄花手鐲", price: 1280, img: "https://placehold.co/600x600?text=Jade+Bangle+1" },
-      { name: "帝王綠圓條鐲", price: 2580, img: "https://placehold.co/600x600?text=Jade+Bangle+2" },
-      { name: "紫羅蘭貴妃鐲", price: 980, img: "https://placehold.co/600x600?text=Jade+Bangle+3" },
-      { name: "晴水底平安鐲", price: 1680, img: "https://placehold.co/600x600?text=Jade+Bangle+4" }
-    ];
+ <script type="module">
+  import { createClient } from "https://esm.sh/@sanity/client";
+
+  const client = createClient({
+    projectId: "4ske3e12",   // 👈 粘贴你的 Project ID
+    dataset: "production",
+    apiVersion: "2026-05-31",
+    token: "skZtHMIhhYzM99GRE2XH8JgzP37YLQAFLOEwWCqv0d2xjiAurb8EHGLQJP61Txz9W0ys6xUswxEWmnXMt68i43iSVFJx88eFcUnzokZaxJ216shKHVS8gxKi4OVp8ba199IqXPMLvfAiUwR3bI8dPjZf6fmKRHBFJkSKe8jcIGRKAEg8HSKY",     // 👈 粘贴你复制的 token
+    useCdn: false,
+  });
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    return str.replace(/[&<>]/g, m => m === '&' ? '&amp;' : m === '<' ? '&lt;' : '&gt;');
+  }
+
+  // 加载产品
+  async function loadProducts() {
     const container = document.getElementById('product-list');
-    if(container && container.innerHTML.includes('載入中')) {
-      const demoHtml = demoProducts.map(p => `
+    if (!container) return;
+    container.innerHTML = '<div style="grid-column:1/-1; text-align:center;">載入中...</div>';
+    const query = `*[_type == "product"]{name, price, "imageUrl": mainImage.asset->url, description}`;
+    try {
+      const items = await client.fetch(query);
+      if (!items.length) { container.innerHTML = '<div style="grid-column:1/-1; text-align:center;">✨ 暫無產品 ✨</div>'; return; }
+      container.innerHTML = items.map(p => `
         <div class="product-card">
-          <img class="product-img" src="${p.img}" alt="${p.name}">
+          <img class="product-img" src="${p.imageUrl || 'https://placehold.co/600x600?text=Jade'}" alt="${escapeHtml(p.name)}">
           <div class="product-info">
-            <div class="product-title">${p.name}</div>
-            <div class="product-price">NT$${p.price * 32}</div>
+            <div class="product-title">${escapeHtml(p.name)}</div>
+            <div class="product-price">${p.price ? `NT$${p.price}` : '詢價'}</div>
             <div class="product-action"><span>天然保A</span><a href="#" class="btn-outline btn" style="padding:6px 20px;">諮詢</a></div>
           </div>
         </div>
       `).join('');
-      container.innerHTML = demoHtml;
-    }
+    } catch (err) { console.error(err); container.innerHTML = '<div style="grid-column:1/-1; text-align:center;">⚠️ 加載失敗</div>'; }
+  }
 
-    // 预约按钮提示
-    document.getElementById('appointmentBtn')?.addEventListener('click', () => {
-      alert('請透過 Line 或 Email 預約線下賞玉：\nLine: https://line.me/ti/p/8CWw79h6Lx\nEmail: lindachen998866@gmail.com');
-    });
+  // 加载服务（替换原有服务卡片）
+  async function loadServices() {
+    const grid = document.querySelector('.services-grid');
+    if (!grid) return;
+    const query = `*[_type == "service"]{title, description, icon}`;
+    try {
+      const items = await client.fetch(query);
+      if (items.length) {
+        grid.innerHTML = items.map(s => `
+          <div class="service-card">
+            <i class="fas ${s.icon || 'fa-gem'}"></i>
+            <h3>${escapeHtml(s.title)}</h3>
+            <p>${escapeHtml(s.description)}</p>
+            <a href="#" class="btn-outline btn">了解更多</a>
+          </div>
+        `).join('');
+      }
+    } catch (err) { console.error(err); }
+  }
 
-    // 回到顶部
-    const goTopBtn = document.getElementById('goTop');
-    window.addEventListener('scroll', () => {
-      goTopBtn.style.opacity = window.scrollY > 300 ? '1' : '0';
-    });
+  // 加载店铺简介
+  async function loadStoreInfo() {
+    const query = `*[_type == "storeInfo"][0]{title, mainDescription, address}`;
+    try {
+      const info = await client.fetch(query);
+      if (!info) return;
+      const existing = document.querySelector('.dynamic-store-info');
+      if (existing) existing.remove();
+      const philosophySection = document.querySelector('.philosophy-text')?.closest('section');
+      if (philosophySection) {
+        const newSection = document.createElement('section');
+        newSection.className = 'dynamic-store-info';
+        newSection.innerHTML = `
+          <div class="container">
+            <h2 class="section-title">${escapeHtml(info.title)}</h2>
+            <div class="philosophy-text">${escapeHtml(info.mainDescription).replace(/\n/g, '<br>')}</div>
+            ${info.address ? `<p style="margin-top:1rem;"><i class="fas fa-map-marker-alt"></i> ${escapeHtml(info.address)}</p>` : ''}
+          </div>
+        `;
+        philosophySection.insertAdjacentElement('afterend', newSection);
+      }
+    } catch (err) { console.error(err); }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    loadProducts();
+    loadServices();
+    loadStoreInfo();
+  });
+
+  // 保留原有的回到顶部和预约按钮功能
+  const goTopBtn = document.getElementById('goTop');
+  if (goTopBtn) {
+    window.addEventListener('scroll', () => goTopBtn.style.opacity = window.scrollY > 300 ? '1' : '0');
     goTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  </script>
+  }
+  const appointmentBtn = document.getElementById('appointmentBtn');
+  if (appointmentBtn) {
+    appointmentBtn.addEventListener('click', () => alert('請透過 Line 或 Email 預約：\nLine: https://line.me/ti/p/8CWw79h6Lx\nEmail: lindachen998866@gmail.com'));
+  }
+</script>
 </body>
 </html>
