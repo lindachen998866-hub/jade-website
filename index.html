@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
@@ -25,13 +25,13 @@
       font-family: 'Playfair Display', serif;
     }
 
-    /* 颜色变量 */
     :root {
       --gold: #b89b5b;
       --gold-light: #d4be8c;
       --bg-dark: #1e2a2a;
       --text-light: #f5f3ef;
       --border-light: #e6e0d4;
+      --line-green: #06c755;
     }
 
     .container {
@@ -40,7 +40,6 @@
       padding: 0 24px;
     }
 
-    /* 导航栏 */
     .navbar {
       position: sticky;
       top: 0;
@@ -87,7 +86,6 @@
       padding-left: 20px;
     }
 
-    /* 按钮样式 */
     .btn {
       display: inline-block;
       padding: 12px 28px;
@@ -116,8 +114,18 @@
       background: var(--gold);
       color: #1e2a2a;
     }
+    .btn-line {
+      background: var(--line-green);
+      color: white;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-line:hover {
+      background: #05a848;
+      transform: translateY(-2px);
+    }
 
-    /* 头部 Hero */
     .hero {
       background: linear-gradient(100deg, #1e2a2a 0%, #2c3e3a 100%);
       color: var(--text-light);
@@ -151,7 +159,6 @@
       color: var(--gold);
     }
 
-    /* 通用区块 */
     section {
       padding: 80px 0;
       border-bottom: 1px solid var(--border-light);
@@ -171,7 +178,6 @@
       margin: 16px auto 0;
     }
 
-    /* 服务卡片 */
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -201,7 +207,6 @@
       margin-bottom: 24px;
     }
 
-    /* 产品网格（现货区） */
     .products-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -245,7 +250,6 @@
       align-items: center;
     }
 
-    /* 信任背书 */
     .trust-grid {
       display: flex;
       flex-wrap: wrap;
@@ -270,7 +274,6 @@
       margin-top: 40px;
     }
 
-    /* 联系区 */
     .contact-wrap {
       background: #eef3f0;
       border-radius: 48px;
@@ -297,7 +300,7 @@
       font-size: 1.5rem;
       color: var(--gold);
     }
-    .wechat-qr {
+    .line-qr {
       background: white;
       padding: 20px;
       border-radius: 28px;
@@ -348,97 +351,98 @@
   </style>
 </head>
 <body>
-  <!-- 导航栏 -->
   <div class="navbar">
     <div class="container nav-flex">
       <a href="#" class="logo">Jade<span>Bangle</span></a>
       <ul class="nav-links">
-        <li><a href="#">首页</a></li>
-        <li><a href="#products">现货玉镯</a></li>
-        <li><a href="#services">服务</a></li>
-        <li><a href="#contact">联系</a></li>
+        <li><a href="#">首頁</a></li>
+        <li><a href="#products">現貨玉鐲</a></li>
+        <li><a href="#services">服務</a></li>
+        <li><a href="#contact">聯繫</a></li>
       </ul>
-      <div class="lang-switch">🇺🇸 EN / 中文</div>
+      <div class="lang-switch">🇹🇼 中文</div>
     </div>
   </div>
 
-  <!-- Hero 主视觉 -->
   <header class="hero">
     <div class="container">
-      <h1 class="hero-title">臺灣翡翠珠宝<br>专注定制·鉴定·零售</h1>
-      <p class="hero-sub">臺南可预约上门赏玉 | 全臺48小时无理由退换</p>
-      <a href="#products" class="btn btn-primary">浏览现货</a>
+      <h1 class="hero-title">臺灣翡翠珠寶<br>專注定制·鑒定·零售</h1>
+      <p class="hero-sub">臺南可預約上門賞玉 | 全臺48小時無理由退換</p>
+      <a href="#products" class="btn btn-primary">瀏覽現貨</a>
       <div class="hero-badges">
-        <div class="hero-badge"><i class="fas fa-shipping-fast"></i><span>美加3日达</span></div>
+        <div class="hero-badge"><i class="fas fa-shipping-fast"></i><span>全臺快速配送</span></div>
         <div class="hero-badge"><i class="fas fa-gem"></i><span>天然保真</span></div>
-        <div class="hero-badge"><i class="fas fa-hand-holding-heart"></i><span>免费复检建议</span></div>
+        <div class="hero-badge"><i class="fas fa-hand-holding-heart"></i><span>免費複檢建議</span></div>
       </div>
     </div>
   </header>
 
   <main>
     <div class="container">
-      <!-- 核心服务区 -->
       <section id="services">
-        <h2 class="section-title">专属服务</h2>
+        <h2 class="section-title">專屬服務</h2>
         <div class="services-grid">
           <div class="service-card">
             <i class="fas fa-shopping-cart"></i>
-            <h3>玉镯代购</h3>
-            <p>源头伙伴提供玉镯图片/视频，帮您甄选、订购，不满意可部分退款。</p>
+            <h3>玉鐲代購</h3>
+            <p>源頭夥伴提供玉鐲圖片/視頻，幫您甄選、訂購，不滿意可部分退款。</p>
             <a href="#" class="btn-outline btn">了解更多</a>
           </div>
           <div class="service-card">
             <i class="fas fa-gem"></i>
-            <h3>珠宝镶嵌定制</h3>
-            <p>从裸石挑选、18k金设计到精工加工，远程一站式定制。</p>
-            <a href="#" class="btn-outline btn">联系定制</a>
+            <h3>珠寶鑲嵌定制</h3>
+            <p>從裸石挑選、18k金設計到精工加工，遠程一站式定制。</p>
+            <a href="#" class="btn-outline btn">聯繫定制</a>
           </div>
           <div class="service-card">
             <i class="fas fa-certificate"></i>
-            <h3>鉴定/出证书</h3>
-            <p>免费图片初检，代送BAGL实验室，出具权威证书。</p>
-            <a href="#" class="btn-outline btn">免费咨询</a>
+            <h3>鑒定/出證書</h3>
+            <p>免費圖片初檢，代送專業實驗室，出具權威證書。</p>
+            <a href="#" class="btn-outline btn">免費諮詢</a>
           </div>
         </div>
       </section>
 
-      <!-- 现货产品区（动态加载） -->
       <section id="products">
-        <h2 class="section-title">精选现货 · 玉镯臻品</h2>
+        <h2 class="section-title">精選現貨 · 玉鐲臻品</h2>
         <div id="product-list" class="products-grid">
-          <div class="loading-spinner" style="grid-column:1/-1; text-align:center;">加载中...</div>
+          <div class="loading-spinner" style="grid-column:1/-1; text-align:center;">載入中...</div>
         </div>
       </section>
 
-      <!-- 信任背书 + 资质 -->
       <section>
-        <h2 class="section-title">您身边懂玉的朋友</h2>
+        <h2 class="section-title">您身邊懂玉的朋友</h2>
         <div class="trust-grid">
-          <div class="trust-item"><i class="fas fa-id-card"></i><h4>NGTC鉴定师</h4><p>品牌主理人持证</p></div>
-          <div class="trust-item"><i class="fas fa-graduation-cap"></i><h4>GIA文凭</h4><p>美国宝石学院资质</p></div>
-          <div class="trust-item"><i class="fas fa-hand-peace"></i><h4>永久保真</h4><p>支持全球复检</p></div>
+          <div class="trust-item"><i class="fas fa-id-card"></i><h4>NGTC鑒定師</h4><p>品牌主理人持證</p></div>
+          <div class="trust-item"><i class="fas fa-graduation-cap"></i><h4>GIA文憑</h4><p>美國寶石學院資質</p></div>
+          <div class="trust-item"><i class="fas fa-hand-peace"></i><h4>永久保真</h4><p>支持全球複檢</p></div>
         </div>
         <div class="badge-gold">
-          <i class="fas fa-check-circle"></i> 所有翡翠和田玉永久保A，提供国内正规机构鉴定证书，48小时无理由退换。
+          <i class="fas fa-check-circle"></i> 所有翡翠和田玉永久保A，提供正規機構鑒定證書，48小時無理由退換。
         </div>
       </section>
 
-      <!-- 联系区块 -->
       <section id="contact">
-        <h2 class="section-title">预约赏玉 · 专属顾问</h2>
+        <h2 class="section-title">預約賞玉 · 專屬顧問</h2>
         <div class="contact-wrap">
           <div class="contact-flex">
             <div class="contact-left">
-              <div class="contact-item"><i class="fab fa-weixin"></i><span>投诉建议: dangdangjade</span></div>
-              <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>线下展厅: 臺南 Foster City</span></div>
-              <div class="contact-item"><i class="fas fa-envelope"></i><span>邮箱: info@jadebangle.shop</span></div>
-              <div><a href="#" class="btn btn-primary">预约线下赏玉</a></div>
+              <div class="contact-item"><i class="fab fa-line"></i><span>官方Line：<a href="https://line.me/ti/p/8CWw79h6Lx" target="_blank" style="color:var(--line-green); font-weight:bold;">點擊加入好友</a></span></div>
+              <div class="contact-item"><i class="fas fa-envelope"></i><span>客服/投訴信箱：lindachen998866@gmail.com</span></div>
+              <div class="contact-item"><i class="fas fa-map-marker-alt"></i><span>線下展廳：臺南市中西區（預約制）</span></div>
+              <div style="margin-top: 20px;">
+                <a href="https://line.me/ti/p/8CWw79h6Lx" target="_blank" class="btn btn-line" style="background:#06c755; color:white;">
+                  <i class="fab fa-line"></i> 加入Line好友
+                </a>
+                <button class="btn btn-primary" id="appointmentBtn" style="margin-left: 16px;">預約線下賞玉</button>
+              </div>
             </div>
-            <div class="wechat-qr">
-              <i class="fab fa-weixin fa-2x"></i>
-              <p>扫码添加客服<br>一对一咨询</p>
-              <div style="background:#ddd; width:100px; height:100px; margin:12px auto; border-radius:12px;"></div>
+            <div class="line-qr">
+              <i class="fab fa-line fa-2x" style="color:#06c755;"></i>
+              <p>掃描或點擊上方按鈕<br>加入Line客服</p>
+              <div style="background:#eee; width:100px; height:100px; margin:12px auto; border-radius:12px; display:flex; align-items:center; justify-content:center;">
+                <i class="fab fa-line fa-3x" style="color:#06c755;"></i>
+              </div>
             </div>
           </div>
         </div>
@@ -448,102 +452,44 @@
 
   <footer>
     <div class="container" style="text-align:center;">
-      <p>© 2025 臺南翡翠珠宝 | 专注天然翡翠、和田玉 定制·鉴定·零售</p>
+      <p>© 2025 臺灣翡翠珠寶 | 專注天然翡翠、和田玉 定制·鑒定·零售</p>
       <div class="footer-links">
-        <a href="#">鉴赏规则</a>  |  <a href="#">运输时效</a>  |  <a href="#">关于我们</a>
+        <a href="#">鑒賞規則</a>  |  <a href="#">運輸時效</a>  |  <a href="#">關於我們</a>
       </div>
-      <p style="opacity:0.7;">臺南 · 预约上门 | 北美48小时退换</p>
+      <p style="opacity:0.7;">臺南 · 預約上門 | 全臺48小時退換</p>
     </div>
   </footer>
   <div class="back2top" id="goTop"><i class="fas fa-arrow-up"></i></div>
 
-  <!-- 引入 Sanity Client 并动态渲染产品（待用户配置） -->
   <script type="module">
-    // 如果需要动态加载产品，请取消注释并填入你的 credentials
-    /*
-    import { createClient } from "https://esm.sh/@sanity/client";
-
-    const client = createClient({
-      projectId: '你的项目ID',
-      dataset: '你的数据集',
-      apiVersion: '2024-05-04',
-      token: '你的API Token',   // Viewer 只读权限
-      useCdn: false,
-    });
-
-    const query = `*[_type == "product"]{
-      _id,
-      name,
-      price,
-      "imageUrl": mainImage.asset->url,
-      description
-    }`;
-
-    const productContainer = document.getElementById('product-list');
-
-    async function loadProducts() {
-      try {
-        const items = await client.fetch(query);
-        if (!items || items.length === 0) {
-          productContainer.innerHTML = `<div style="grid-column:1/-1; text-align:center;">✨ 即将上新产品，敬请期待 ✨</div>`;
-          return;
-        }
-        const html = items.map(p => `
-          <div class="product-card">
-            <img class="product-img" src="${p.imageUrl || 'https://placehold.co/600x600?text=Jade'}" alt="${p.name}">
-            <div class="product-info">
-              <div class="product-title">${escapeHtml(p.name)}</div>
-              <div class="product-price">${p.price ? `$${p.price}` : '询价'}</div>
-              <div class="product-action">
-                <span>天然保A</span>
-                <a href="#" class="btn-outline btn" style="padding:6px 20px;">咨询</a>
-              </div>
-            </div>
-          </div>
-        `).join('');
-        productContainer.innerHTML = html;
-      } catch(err) {
-        console.error(err);
-        productContainer.innerHTML = `<div style="grid-column:1/-1; text-align:center;">⚠️ 加载失败，请检查Sanity配置或网络</div>`;
-      }
-    }
-
-    function escapeHtml(str) {
-      if(!str) return '';
-      return str.replace(/[&<>]/g, function(m){
-        if(m === '&') return '&amp;';
-        if(m === '<') return '&lt;';
-        if(m === '>') return '&gt;';
-        return m;
-      });
-    }
-
-    loadProducts();
-    */
-
-    // 静态演示数据（当未启用Sanity时可展示示例）
+    // 静态演示数据（可替换为Sanity动态加载）
     const demoProducts = [
-      { name: "冰种飘花手镯", price: 1280, img: "https://placehold.co/600x600?text=Jade+Bangle+1" },
-      { name: "帝王绿圆条镯", price: 2580, img: "https://placehold.co/600x600?text=Jade+Bangle+2" },
-      { name: "紫罗兰贵妃镯", price: 980, img: "https://placehold.co/600x600?text=Jade+Bangle+3" },
-      { name: "晴水底平安镯", price: 1680, img: "https://placehold.co/600x600?text=Jade+Bangle+4" }
+      { name: "冰種飄花手鐲", price: 1280, img: "https://placehold.co/600x600?text=Jade+Bangle+1" },
+      { name: "帝王綠圓條鐲", price: 2580, img: "https://placehold.co/600x600?text=Jade+Bangle+2" },
+      { name: "紫羅蘭貴妃鐲", price: 980, img: "https://placehold.co/600x600?text=Jade+Bangle+3" },
+      { name: "晴水底平安鐲", price: 1680, img: "https://placehold.co/600x600?text=Jade+Bangle+4" }
     ];
     const container = document.getElementById('product-list');
-    if(container && container.innerHTML.includes('加载中...')) {
+    if(container && container.innerHTML.includes('載入中')) {
       const demoHtml = demoProducts.map(p => `
         <div class="product-card">
           <img class="product-img" src="${p.img}" alt="${p.name}">
           <div class="product-info">
             <div class="product-title">${p.name}</div>
-            <div class="product-price">$${p.price}</div>
-            <div class="product-action"><span>天然保A</span><a href="#" class="btn-outline btn" style="padding:6px 20px;">咨询</a></div>
+            <div class="product-price">NT$${p.price * 32}</div>
+            <div class="product-action"><span>天然保A</span><a href="#" class="btn-outline btn" style="padding:6px 20px;">諮詢</a></div>
           </div>
         </div>
       `).join('');
       container.innerHTML = demoHtml;
     }
 
-    // 回到顶部按钮
+    // 预约按钮提示
+    document.getElementById('appointmentBtn')?.addEventListener('click', () => {
+      alert('請透過 Line 或 Email 預約線下賞玉：\nLine: https://line.me/ti/p/8CWw79h6Lx\nEmail: lindachen998866@gmail.com');
+    });
+
+    // 回到顶部
     const goTopBtn = document.getElementById('goTop');
     window.addEventListener('scroll', () => {
       goTopBtn.style.opacity = window.scrollY > 300 ? '1' : '0';
