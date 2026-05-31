@@ -40,11 +40,11 @@
       border-radius: 6px;
     }
 
-    /* 头部区域 */
+    /* 头部区域 - 纯翡翠主题 */
     header {
       height: 100vh;
       min-height: 600px;
-      background: linear-gradient(125deg, rgba(12,21,19,0.7), rgba(0,0,0,0.65)), url('https://old-coffee-b7k4dbij.edgeone.app/image_%E7%BF%A1%E7%BF%A0%E6%89%93%E5%B7%A5%E4%BA%BA_%E4%BD%B3%E5%A3%AB%E5%BE%97%E6%8B%8D%E5%8D%96%E6%AC%BE%E9%9B%AA%E8%8A%B1%E6%88%92%E6%8C%87..._0.png') center/cover no-repeat;
+      background: linear-gradient(125deg, rgba(12,21,19,0.75), rgba(0,0,0,0.7)), url('https://cdn.pixabay.com/photo/2025/12/08/08/19/emerald-9983855_1280.jpg') center/cover no-repeat;
       background-attachment: fixed;
       display: flex;
       flex-direction: column;
@@ -190,7 +190,7 @@
       font-size: 0.95rem;
     }
 
-    /* 新增画廊区块（图片展示增强）*/
+    /* 画廊区块 - 纯翡翠图片展示 */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -230,7 +230,7 @@
       pointer-events: none;
     }
 
-    /* 三个优势卡片（为什么选择我们） */
+    /* 三个优势卡片 */
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -260,7 +260,7 @@
       font-size: 0.9rem;
     }
 
-    /* 联系 & Line区块 */
+    /* 联系区块 - 仅显示邮箱和Line */
     .contact-section {
       background: linear-gradient(115deg, #10201b 0%, #0a1613 100%);
       border-radius: 42px;
@@ -388,7 +388,7 @@
 
 <main>
   <div class="container">
-    <!-- 品牌理念（丰富原有部分） -->
+    <!-- 品牌理念 -->
     <section>
       <div class="title">
         <i class="fas fa-gem"></i> 品牌理念
@@ -399,29 +399,28 @@
       </div>
     </section>
 
-    <!-- 新增 : 翡翠映像·东方画廊 (增添图片展示区域) -->
+    <!-- 翡翠映像·东方画廊 - 全部替换为翡翠照片 -->
     <section>
       <div class="title">
         <i class="fas fa-images"></i> 翡翠映像 · 典藏畫廊
       </div>
       <div class="gallery-grid" id="extraGallery">
-        <!-- 硬编码高品质翡翠展示图片，增添视觉丰富度 (均为免费商用/优雅翡翠示意) 
-             使用已知的高质量翡翠类图片占位，为了真实体验采用unsplash相似翡翠主题但确保可靠-->
+        <!-- 纯翡翠高清展示图片，均来自可商用CC0/免费资源 -->
         <div class="gallery-item">
-          <img src="https://picsum.photos/id/104/600/600" alt="翡翠手镯">
-          <div class="gallery-caption">冰種正陽綠手鐲</div>
+          <img src="https://cdn.pixabay.com/photo/2020/12/09/03/42/bracelet-5814144_1280.jpg" alt="翡翠手镯">
+          <div class="gallery-caption">天然翡翠手鐲 · 冰透質地</div>
         </div>
         <div class="gallery-item">
-          <img src="https://picsum.photos/id/29/600/600" alt="翡翠观音">
-          <div class="gallery-caption">翡翠觀音 · 精雕</div>
+          <img src="https://pxhere.com/photo/1248675" alt="翡翠珠子">
+          <div class="gallery-caption">翡翠珠鏈 · 帝王綠</div>
         </div>
         <div class="gallery-item">
-          <img src="https://picsum.photos/id/42/600/600" alt="翡翠蛋面戒指">
-          <div class="gallery-caption">帝王綠蛋面戒指</div>
+          <img src="https://pxhere.com/photo/917060" alt="翡翠原石">
+          <div class="gallery-caption">翡翠原礦 · 未琢之美</div>
         </div>
         <div class="gallery-item">
-          <img src="https://picsum.photos/id/20/600/600" alt="翡翠山水牌">
-          <div class="gallery-caption">山水意境牌</div>
+          <img src="https://cdn.pixabay.com/photo/2018/12/13/18/44/jade-3873213_1280.jpg" alt="翡翠观音雕件">
+          <div class="gallery-caption">翡翠觀音 · 匠心傳承</div>
         </div>
       </div>
       <p style="text-align:center; margin-top:16px; font-style:italic; opacity:0.7;">天然瑰寶 · 每一件皆孤品</p>
@@ -439,7 +438,7 @@
       </div>
     </section>
 
-    <!-- 为什么选择我们（丰富内容） -->
+    <!-- 为什么选择我们 -->
     <section>
       <div class="title">
         <i class="fas fa-crown"></i> 為什麼選擇我們
@@ -463,7 +462,7 @@
       </div>
     </section>
 
-    <!-- 收藏理念 + 专家顾问（丰富文字） -->
+    <!-- 收藏理念 + 联系区块（只保留邮箱和Line，移除电话） -->
     <section style="border-bottom: none;">
       <div class="title">
         <i class="fas fa-feather-alt"></i> 收藏理念
@@ -473,25 +472,22 @@
         翡翠雅藏堅持「礦區直選、工藝傳承、底蘊為上」，從毛料到成品全程溯源，為藏家提供真正值得世代相傳的翡翠藝術。
       </div>
 
-      <!-- 新增 Line 联系 + 其他联系方式的区块 -->
+      <!-- 联系区块 - 仅包含邮箱和Line，更新指定链接 -->
       <div class="contact-section" id="contact">
         <div class="contact-flex">
           <div class="contact-info">
             <h3><i class="fab fa-line" style="color:#06c755;"></i> 專屬收藏顧問</h3>
             <p>即時諮詢 · 一對一鑑賞 · 預約線下展廳</p>
             <div class="contact-detail">
-              <i class="fas fa-phone-alt"></i> <span>+886 2 7752 1888</span>
-            </div>
-            <div class="contact-detail">
-              <i class="fas fa-envelope"></i> <span>jade@jade-collection.com</span>
+              <i class="fas fa-envelope"></i> <span>lindachen99866@gmail.com</span>
             </div>
             <div class="contact-detail">
               <i class="fab fa-line"></i> <span>官方Line ID: @jade_collection</span>
             </div>
-            <a href="https://line.me/R/ti/p/@jade_collection" target="_blank" class="line-btn" rel="noopener noreferrer">
+            <a href="https://line.me/ti/p/8CWw79h6Lx" target="_blank" class="line-btn" rel="noopener noreferrer">
               <i class="fab fa-line"></i> 加入Line好友 ｜ 專屬禮遇
             </a>
-            <p style="margin-top: 20px; font-size: 0.8rem; opacity:0.7;">掃描或點擊加入，獲取最新珍藏目錄</p>
+            <p style="margin-top: 20px; font-size: 0.8rem; opacity:0.7;">點擊加入Line，獲取最新珍藏目錄</p>
           </div>
           <div class="qr-placeholder">
             <i class="fab fa-line"></i> LINE 官方帳號<br>
@@ -508,7 +504,7 @@
   <p>© 2026 翡翠雅藏 Jade Collection · 東方翡翠藝術 | 天然收藏 匠心傳承</p>
   <p style="margin-top: 12px;">
     <i class="fab fa-line"></i> Line：@jade_collection &nbsp;|&nbsp; 
-    <i class="fas fa-map-marker-alt"></i> 台北市大安區信義路三段  &nbsp;|&nbsp;
+    <i class="fas fa-envelope"></i> lindachen99866@gmail.com &nbsp;|&nbsp;
     <a href="#home">回到頂端</a>
   </p>
 </footer>
@@ -544,9 +540,9 @@
       const cardsHtml = items.map(item => {
         let imgHtml = '';
         if (item.imageUrl) {
-          imgHtml = `<img class="card-img" src="${item.imageUrl}" alt="${item.title || '翡翠作品'}" loading="lazy" onerror="this.src='https://picsum.photos/id/104/400/300'">`;
+          imgHtml = `<img class="card-img" src="${item.imageUrl}" alt="${item.title || '翡翠作品'}" loading="lazy" onerror="this.src='https://cdn.pixabay.com/photo/2018/12/13/18/44/jade-3873213_1280.jpg'">`;
         } else {
-          imgHtml = `<img class="card-img" src="https://picsum.photos/id/95/400/300" alt="翡翠意境圖">`;
+          imgHtml = `<img class="card-img" src="https://cdn.pixabay.com/photo/2018/12/13/18/44/jade-3873213_1280.jpg" alt="翡翠意境圖">`;
         }
         return `
           <div class="card">
@@ -580,31 +576,21 @@
 
   loadSanityPosts();
 
-  // 为画廊添加点击预览效果（简单轻提示可拓展，仅增强体验）
+  // 为画廊添加点击预览效果
   const galleryImages = document.querySelectorAll('.gallery-item img');
   galleryImages.forEach(img => {
     img.addEventListener('click', () => {
-      // 轻交互: alert展示简单描述，但为了体验采用温和方式
-      const caption = img.nextElementSibling ? img.nextElementSibling.innerText : '翡翠臻品';
       window.open(img.src, '_blank');
     });
   });
 </script>
 
-<!-- 简单平滑滚动，增加headroom感 -->
+<!-- 平滑滚动 -->
 <script>
   document.querySelector('.scroll-down')?.addEventListener('click', () => {
     const brandSection = document.querySelector('.title');
     if (brandSection) brandSection.scrollIntoView({ behavior: 'smooth' });
   });
-
-  // 为footer中的line链接添加防错
-  const lineBtn = document.querySelector('.line-btn');
-  if(lineBtn) {
-    lineBtn.addEventListener('click', (e) => {
-      // 完全保留原链接跳转
-    });
-  }
 </script>
 </body>
 </html>
